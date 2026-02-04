@@ -16,12 +16,17 @@ public interface EmpMapper {
     /*
      * 查询符合查询条件的总员工数量
      * */
-    @Select("select count(*) from emp")
-    public int getEmpsPageSize();
+    //---------------------原始方法分页查询员工信息-------------------------
+//    @Select("select count(*) from emp")
+//    public int getEmpsPageSize();
+//
+//    /*
+//     * 分页查询员工信息
+//     * */
+//    @Select("select emp.*, dept.name deptName from emp left join dept on dept.id = emp.dept_id limit #{start},#{pageSize}")
+//    public List<Emp> getEmpsPage(int start, int pageSize);
 
-    /*
-     * 分页查询员工信息
-     * */
-    @Select("select emp.*, dept.name deptName from emp left join dept on dept.id = emp.dept_id limit #{start},#{pageSize}")
-    public List<Emp> getEmpsPage(int start, int pageSize);
+    //---------------------使用PageHelper分页查询员工信息-------------------------
+    @Select("select emp.*, dept.name deptName from emp left join dept on dept.id = emp.dept_id ")
+    public List<Emp> getEmpsPage();
 }
