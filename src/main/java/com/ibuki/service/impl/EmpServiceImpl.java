@@ -17,8 +17,6 @@ import java.util.List;
 public class EmpServiceImpl implements EmpService, EmpExprService {
     @Autowired
     private EmpMapper empMapper;
-    @Autowired
-    private EmpExprMapper empExprMapper;
 
     /*
      * 分页查询员工信息
@@ -48,6 +46,6 @@ public class EmpServiceImpl implements EmpService, EmpExprService {
         List<Emp> empsPage = empMapper.getEmpsPage();
 
         Page<Emp> p = (Page<Emp>) empsPage;
-        return new PageResult<Emp>(p.getTotal(), p.getResult());
+        return new PageResult<>(p.getTotal(), p.getResult());
     }
 }

@@ -28,5 +28,5 @@ public interface EmpMapper {
 
     //---------------------使用PageHelper分页查询员工信息-------------------------
     @Select("select emp.*, dept.name deptName from emp left join dept on dept.id = emp.dept_id ")
-    public List<Emp> getEmpsPage();
+    List<Emp> getEmpsPage();
 }
