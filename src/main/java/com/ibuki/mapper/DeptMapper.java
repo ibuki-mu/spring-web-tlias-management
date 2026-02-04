@@ -1,6 +1,7 @@
 package com.ibuki.mapper;
 
 import com.ibuki.pojo.Dept;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -10,5 +11,8 @@ import java.util.List;
 public interface DeptMapper {
 
     @Select("select id, name, create_time, update_time from dept order by update_time desc;")
-    public List<Dept> findAllDeptByUpdatetime();
+    List<Dept> findAllDeptByUpdatetime();
+
+    @Delete("delete from dept where id = #{id}")
+    int deleteDeptById(Integer id);
 }
