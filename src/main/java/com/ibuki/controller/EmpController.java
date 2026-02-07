@@ -6,10 +6,7 @@ import com.ibuki.pojo.Result;
 import com.ibuki.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -35,5 +32,14 @@ public class EmpController {
         log.info("获取分页数据，page：{}，pageSize：{}", page, pageSize);
         PageResult<Emp> pageResult = empService.findEmpsPage(page, pageSize);
         return Result.success(pageResult);
+    }
+
+    @PostMapping
+    public Result addEmp(@RequestBody Emp emp){
+        log.info("添加员工信息：{}", emp);
+
+        empService.addEmp(emp);
+
+        return Result.success();
     }
 }

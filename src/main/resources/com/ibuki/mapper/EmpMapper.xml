@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ibuki.mapper.EmpMapper">
+    <insert id="addEmp" useGeneratedKeys="true" keyProperty="id">
+        insert emp(USERNAME, NAME, GENDER, PHONE, JOB, SALARY, IMAGE, ENTRY_DATE, DEPT_ID, CREATE_TIME, UPDATE_TIME)
+            VALUES (#{username}, #{name}, #{gender}, #{phone}, #{job}, #{salary}, #{image}, #{entryDate}, #{deptId}, #{createTime}, #{updateTime})
+    </insert>
+
+    <select id="getEmpsPage" resultType="com.ibuki.pojo.Emp">
+
+    </select>
+</mapper>

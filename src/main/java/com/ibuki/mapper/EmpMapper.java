@@ -3,6 +3,7 @@ package com.ibuki.mapper;
 
 import com.ibuki.pojo.Emp;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -27,6 +28,9 @@ public interface EmpMapper {
 //    public List<Emp> getEmpsPage(int start, int pageSize);
 
     //---------------------使用PageHelper分页查询员工信息-------------------------
-    @Select("select emp.*, dept.name deptName from emp left join dept on dept.id = emp.dept_id ")
+//    @Select("select emp.*, dept.name deptName from emp left join dept on dept.id = emp.dept_id ")
     List<Emp> getEmpsPage();
+
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    void addEmp(Emp emp);
 }

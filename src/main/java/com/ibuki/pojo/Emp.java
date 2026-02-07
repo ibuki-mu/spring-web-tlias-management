@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /*
 * 员工信息表
@@ -24,4 +25,5 @@ public class Emp {
     private LocalDateTime createTime; //创建时间
     private LocalDateTime updateTime; //修改时间
     private String deptName; //部门名称, 关联的部门名称
+    private List<EmpExpr> exprList; //员工经历列表
 }
